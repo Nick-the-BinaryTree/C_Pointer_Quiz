@@ -3,17 +3,16 @@
 #include <string.h>
 
 static int score = 0;
+static char input[10];
 
 void question(char *q_text, char *correct)
 {
-	char *input = malloc(10);
-
 	printf("%s\n", q_text);
 	printf("-> ");
 	fgets(input, 10, stdin) != NULL;
-	input = strtok(input, "\n");
+	char *cmd = strtok(input, "\n");
 
-	if (strcmp(input, correct) == 0) {
+	if (strcmp(cmd, correct) == 0) {
 		printf("Correct!\n\n");
 		score++;
 	} else {
